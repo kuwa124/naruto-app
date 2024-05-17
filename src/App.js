@@ -31,16 +31,33 @@ function App() {
     <main>
       <div className="cards-container">
         {characters.map((character) => {
-          return <div className="card" key={character.id}>
-            <img
-              src=
-              {
-                character.images[0] != null
-                  ? character.images[0]
-                  : 'dummy.png'
-              }
-              alt="character" className="card-image" />
-          </div>
+          return (
+            <div className="card" key={character.id}>
+              <img
+                src={
+                  character.images[0] != null
+                    ? character.images[0]
+                    : "dummy.png"
+                }
+                alt="character"
+                className="card-image"
+              />
+              <div className="card-content">
+                <h3 className="card-title">{character.name}</h3>
+                <p className="card-description">
+                  {/*
+                    オプショナルチェーン:「？.」nullまたはundefinedの場合、?.の右側の部分はスキップされ、undefinedが返されます。
+                    nullish coalescingオペレータ:「??」左側の値がnullまたはundefinedの場合に、右側の値を返します。 */}
+                  {character.debut?.appearsIn ?? " なし"}
+                </p>
+              </div>
+              <div className="card-fooer">
+                <span className="affiliation">
+                  {character.personal?.affiliation ?? 'なし' }
+                </span>
+              </div>
+            </div>
+          );
         })}
       </div>
         
