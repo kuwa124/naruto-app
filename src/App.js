@@ -32,7 +32,14 @@ function App() {
       <div className="cards-container">
         {characters.map((character) => {
           return <div className="card" key={character.id}>
-            
+            <img
+              src=
+              {
+                character.images[0] != null
+                  ? character.images[0]
+                  : 'dummy.png'
+              }
+              alt="character" className="card-image" />
           </div>
         })}
       </div>
