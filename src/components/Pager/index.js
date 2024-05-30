@@ -1,5 +1,5 @@
 import React from 'react';
-import './Pager.css';
+import './index.css';
 
 const Pager = ({ page, handlePrev, handleNext, hasMore }) => {
   return (

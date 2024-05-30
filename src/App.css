@@ -1,61 +1,100 @@
+/* コンテナークラスのスタイル */
 .container {
+  /* トップのパディングを0に設定 */
   padding-top: 0;
 }
 
+/* ヘッダークラスのスタイル */
 .header {
+  /* Flexboxレイアウトを使用 */
   display: flex;
+  /* 水平方向の子要素を両端に配置 */
   justify-content: space-between;
+  /* 垂直方向の子要素を中央に配置 */
   align-items: center;
+  /* トップのパディングを16pxに設定 */
   padding-top: 16px;
+  /* 下のパディングを16pxに設定 */
   padding-bottom: 16px;
+  /* 背景色を設定 */
   background-color: #bce2e8;
 }
 
+/* ヘッダーコンテンツクラスのスタイル */
 .header-content {
+  /* 幅を100%に設定 */
   width: 100%;
+  /* 最大幅を1280pxに制限 */
   max-width: 1280px;
+  /* 左の余白を自動調整 */
   margin-left: auto;
+  /* 右の余白を自動調整 */
   margin-right: auto;
+  /* テキストを左寄せに設定 */
   text-align: left;
 }
 
+/* ロゴクラスのスタイル */
 .logo {
+  /* 右の余白を16pxに設定 */
   margin-right: 16px;
+  /* 幅を100pxに設定 */
   width: 100px;
+  /* 高さを50pxに設定 */
   height: 50px;
 }
 
+/* メインコンテンツのスタイル */
 main {
+  /* トップの余白を16pxに設定 */
   margin-top: 16px;
+  /* 最大幅を1280pxに制限 */
   max-width: 1280px;
+  /* 左の余白を自動調整 */
   margin-left: auto;
+  /* 右の余白を自動調整 */
   margin-right: auto;
 }
 
+/* フッタークラスのスタイル */
 .footer {
+  /* トップのパディングを16pxに設定 */
   padding-top: 16px;
+  /* 下のパディングを16pxに設定 */
   padding-bottom: 16px;
 }
 
+/* フッターテキストクラスのスタイル */
 .footer-text {
+  /* フォントサイズを0.75remに設定 */
   font-size: 0.75rem;
+  /* テキストを中央寄せに設定 */
   text-align: center;
+  /* テキストの色を設定 */
   color: #718096;
 }
 
+/* 画面幅が768px以下の場合のスタイル */
 @media (max-width: 768px) {
+  /* コンテナークラスのスタイル */
   .container {
+    /* パディングを8pxに設定 */
     padding: 8px;
   }
 
+  /* ヘッダークラスのスタイル */
   .header {
+    /* Flexboxの方向を縦に変更 */
     flex-direction: column;
+    /* 子要素を左寄せに配置 */
     align-items: flex-start;
   }
 
+  /* ロゴラッパークラスのスタイル */
   .logo-wrapper {
+    /* Flexboxの方向を縦に変更 */
     flex-direction: column;
+    /* 子要素を左寄せに配置 */
     align-items: flex-start;
   }
-
 }

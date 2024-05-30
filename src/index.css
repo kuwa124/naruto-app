@@ -1,13 +1,25 @@
+/* ボディ要素のスタイルを設定する */
 body {
+  /* 要素の外側の余白をゼロに設定する */
   margin: 0;
+  /* フォントファミリーを設定する */
+  /* 利用可能なフォントを順番に試して、最初に見つかったものを使う */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+
+  /* フォントのアンチエイリアスを有効にする */
+  /* Webページ上の文字を滑らかに表示するためのコードです。
+  アンチエイリアシングは、文字のギザギザを目立たなくする技術です。
+  すべてのブラウザでサポートされているわけではありません。 */
   -webkit-font-smoothing: antialiased;
+  /* フォントのアンチエイリアスを有効にする（Firefox用） */
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* コード要素のスタイルを設定する */
 code {
+  /* フォントファミリーを設定する */
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
