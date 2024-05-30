@@ -1,15 +1,15 @@
-// Reactのフックをインポートする
+// Reactのフックから、useStateとuseEffectをインポートする
 import { useState, useEffect } from "react";
-// fetchCharactersAPIをインポートする
+// 作成したfetchCharacters関数をインポートする
 import fetchCharacters from "../api/fetchCharacters";
 
-// useCharactersカスタムフックを定義する
-const useCharacters = (initialPage = 1) => {
-  // charactersの状態を管理するための状態変数とセッター関数
+// useCharactersというカスタムフックを定義する
+const useCharacters = () => {
+  // charactersという状態変数とその更新関数setCharactersを定義する
   const [characters, setCharacters] = useState([]);
-  // ページの状態を管理するための状態変数とセッター関数
-  const [page, setPage] = useState(initialPage);
-  // ロード中かどうかを管理するための状態変数とセッター関数
+  // pageという状態変数とその更新関数setPageを定義する
+  const [page, setPage] = useState(1);
+  // isLoadingという状態変数とその更新関数setIsLoadingを定義する
   const [isLoading, setIsLoading] = useState(false);
 
   // ページが変更されたときにデータをフェッチする
@@ -28,16 +28,44 @@ const useCharacters = (initialPage = 1) => {
     };
     // fetchDataを呼び出す
     fetchData();
-  }, [page]); // ページが変更されたときだけ useEffect が実行される
+    // ページが変更されたときだけ useEffect が実行される
+  }, [page]);
 
-  // 次のページに移動するためのハンドラー関数
-  const handleNext = () => setPage(page + 1);
-  // 前のページに移動するためのハンドラー関数
-  const handlePrev = () => setPage(page - 1);
+  // handleNextという関数を定義する
+  const handleNext = async () => {
+    // 次のページ番号を計算する
+    const nextPage = page + 1;
+    // ロード中の状態をtrueに設定する
+    setIsLoading(true);
+    // fetchCharacters関数を呼び出して、次のページのデータを取得する
+    const fetchedCharacters = await fetchCharacters(nextPage);
+    // 取得したデータをcharactersに設定する
+    setCharacters(fetchedCharacters);
+    // ページ番号を更新する
+    setPage(nextPage);
+    // ロード中の状態をfalseに設定する
+    setIsLoading(false);
+  };
 
-  // カスタムフックから必要な値を返す
+  // handlePrevという関数を定義する
+  const handlePrev = async () => {
+    // 前のページ番号を計算する
+    const prevPage = page - 1;
+    // ロード中の状態をtrueに設定する
+    setIsLoading(true);
+    // fetchCharacters関数を呼び出して、前のページのデータを取得する
+    const fetchedCharacters = await fetchCharacters(prevPage);
+    // 取得したデータをcharactersに設定する
+    setCharacters(fetchedCharacters);
+    // ページ番号を更新する
+    setPage(prevPage);
+    // ロード中の状態をfalseに設定する
+    setIsLoading(false);
+  };
+
+  // characters、page、isLoading、handleNext、handlePrevをオブジェクトとして返す
   return { characters, page, isLoading, handleNext, handlePrev };
 };
 
-// useCharactersカスタムフックをエクスポートする
+// useCharactersをエクスポートする
 export default useCharacters;

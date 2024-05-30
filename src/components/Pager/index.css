@@ -1,33 +1,57 @@
+/* ページャのスタイルを指定 */
 .pager {
+  /* テキストを中央揃えにする */
   text-align: center;
+  /* 上下に20pxのパディングを設定 */
   padding: 20px;
+  /* Arialフォントファミリーを指定し、代替としてsans-serifを設定 */
   font-family: Arial, sans-serif;
+  /* テキストの色を#333 (暗いグレー) に設定 */
   color: #333;
 }
 
+/* ページャのボタンのスタイルを指定 */
 .pager button {
+  /* ボタンの幅を125pxに設定 */
   width: 125px;
+  /* ボタン同士の間隔を10pxに設定 */
   margin: 0 10px;
+  /* ボタンのパディングを上下8px、左右16pxに設定 */
   padding: 8px 16px;
+  /* テキストの色を白に設定 */
   color: white;
+  /* 背景色を#333 (暗いグレー) に設定 */
   background-color: #333;
+  /* 枠線の色を#333に設定 */
   border: 1px solid #333;
+  /* 枠線の角を4pxの半径で丸める */
   border-radius: 4px;
+  /* カーソルをポインターに変更 */
   cursor: pointer;
+  /* 背景色とテキストの色の変化にアニメーションを適用 */
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* ボタンにホバーした時のスタイルを指定 */
 .pager button:hover {
+  /* 背景色を#555 (灰色) に変更 */
   background-color: #555;
 }
 
+/* ボタンが無効化されているときのスタイルを指定 */
 .pager button:disabled {
+  /* テキストの色を#aaa (薄い灰色) に変更 */
   color: #aaa;
+  /* 枠線の色を#aaaに変更 */
   border-color: #aaa;
+  /* カーソルをデフォルトに戻す */
   cursor: default;
 }
 
+/* ページ番号のスタイルを指定 */
 .pager .page-number {
+  /* ボタンとの間隔を15pxに設定 */
   margin: 0 15px;
+  /* フォントサイズを1.1emに設定 */
   font-size: 1.1em;
 }
